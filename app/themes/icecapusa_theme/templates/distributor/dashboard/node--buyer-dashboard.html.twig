@@ -115,8 +115,8 @@
                           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Appoets Demo
                           <span class="caret"></span></button>
                           <ul class="dropdown-menu">
-                            <li><a href="/buyer/orders">My Orders</a></li>
-                            <li><a href="/buyer/profile">Profile</a></li>
+                            <li><a href="/orders">My Orders</a></li>
+                            <li><a href="/user">Profile</a></li>
                             <li><a href="/buyer/password/reset">Change Password</a></li>
                             <li><a href="/user/logout"
                                     onclick="event.preventDefault();
@@ -140,7 +140,7 @@
     <div class="dash-left">
     {{ user_avatar }}
         <div class="user-img">
-                        <div class="pro-img" style="background-image: url(/themes/icecapusa_theme/main/avatar.jpg);"></div>
+                        <div class="pro-img" style="background-image: url(/main/avatar.jpg);"></div>
             <h4>Appoets Demo</h4>
         </div>
         <div class="side-menu">
@@ -232,12 +232,75 @@
             <div class="col-md-6 text-left">
                 <p>&copy; 2017 IceCap USA</p>
             </div>
+            <!--
             <div class="col-md-6 col-sm-6 col-xs-12 text-right">
-                <a href="" class="app"><img src="/themes/icecapusa_theme/asset/img/appstore.png"></a>
-                <a href="" class="app"><img src="/themes/icecapusa_theme/asset/img/playstore.png"></a>
+                <a href="" class="app"><img src="/asset/img/appstore.png"></a>
+                <a href="" class="app"><img src="/asset/img/playstore.png"></a>
             </div>
+            -->
         </div>
     </div>
+
+    <script src="/asset/js/jquery.min.js"></script>
+    <script src="/asset/js/bootstrap.min.js"></script>       
+    <script type="text/javascript" src="/asset/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="/asset/js/jquery-migrate-1.2.1.min.js"></script> 
+    <script type="text/javascript" src="/asset/js/slick.min.js"></script>
+    <script src="/asset/js/bootstrap-datepicker.min.js"></script>
+    <script src="/asset/js/bootstrap-timepicker.js"></script>
+    <script src="/asset/js/dashboard-scripts.js"></script>
+
+        
+<script type="text/javascript">
+    var current_latitude = 13.0574400;
+    var current_longitude = 80.2482605;
+</script>
+
+<script type="text/javascript">
+    if( navigator.geolocation ) {
+       navigator.geolocation.getCurrentPosition( success, fail );
+    } else {
+        console.log('Sorry, your browser does not support geolocation services');
+        initMap();
+    }
+
+    function success(position)
+    {
+        document.getElementById('long').value = position.coords.longitude;
+        document.getElementById('lat').value = position.coords.latitude
+
+        if(position.coords.longitude != "" && position.coords.latitude != ""){
+            current_longitude = position.coords.longitude;
+            current_latitude = position.coords.latitude;
+        }
+        initMap();
+    }
+
+    function fail()
+    {
+        // Could not obtain location
+        console.log('unable to get your location');
+        initMap();
+    }
+</script> 
+
+<script type="text/javascript" src="/asset/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJUPrYJXDZNgb9KATSHAQYP-7lcchUts&libraries=places&callback=initMap" async defer></script>
+
+<script type="text/javascript">
+    function disableEnterKey(e)
+    {
+        var key;
+        if(window.e)
+            key = window.e.keyCode; // IE
+        else
+            key = e.which; // Firefox
+
+        if(key == 13)
+            return e.preventDefault();
+    }
+</script>
+
 
   </div>
 

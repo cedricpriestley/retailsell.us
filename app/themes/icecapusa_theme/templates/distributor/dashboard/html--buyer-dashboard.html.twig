@@ -26,14 +26,19 @@
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <head-placeholder token="{{ placeholder_token|raw }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
+    <link rel="shortcut icon" type="/themes/icecapusa_theme/image/png" href="/themes/icecapusa_theme/favicon.ico"/>
     <link href="/themes/icecapusa_theme/asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="/themes/icecapusa_theme/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/themes/icecapusa_theme/asset/css/style.css" rel="stylesheet">    
+    <link href="/themes/icecapusa_theme/asset/css/slick.css" rel="stylesheet">
+    <link rel="/themes/icecapusa_themestylesheet" type="text/css" href="/asset/css/slick-theme.css"/>
+    <link href="/themes/icecapusa_theme/asset/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="/themes/icecapusa_theme/asset/css/bootstrap-timepicker.css" rel="stylesheet">
+    <link href="/themes/icecapusa_theme/asset/css/dashboard-style.css" rel="stylesheet">
   </head>
   <body{{ attributes }}>
     {#
@@ -47,7 +52,11 @@
     {{ page }}
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-    <script src="/themes/icecapusa_theme/asset/js/bootstrap.min.js"></script>
-    <!--<script src="/themes/icecapusa_theme/asset/js/scripts.js"></script>-->
   </body>
+  <style>
+    .navbar-fixed-top {
+      z-index:100;
+      position: absolute;
+    }
+  </style>
 </html>

@@ -334,9 +334,10 @@ function icecapusa_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface
 		$entity = \Drupal::entityTypeManager()->getStorage('user')->create(array());
 		$formObject = \Drupal::entityTypeManager()->getFormObject('user', 'register')->setEntity($entity);
 		$form = \Drupal::formBuilder()->getForm($formObject);
-		dpm($form);
     */
+
 		$form['account']['mail']['#attributes']['style'] = "display:none;";
+    unset($form['account']['mail']['#title']);
     $form['account']['mail']['#description'] = "";
     $form['account']['mail']['#required'] = FALSE;
     //unset($form['account']['mail']);
@@ -344,17 +345,26 @@ function icecapusa_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface
     $form['account']['name']['#description'] = "";
     $form['account']['name']['#attributes']['placeholder'] = "Email Address";
 
-    $form['account']['pass']['#description'] = "";
-    $form['account']['pass']['pass1']['#title'] = "";
-    $form['account']['pass']['pass1']['#attributes']['placeholder'] = "Password";
-    $form['account']['pass']['pass2']['#title'] = "";
-    $form['account']['pass']['pass2']['#attributes']['placeholder'] = "Confirm password";
+    unset($form['account']['status']);
+    unset($form['account']['roles']);
+    unset($form['account']['notify']);
+    unset($form['account']['pass']['#description']);
+    //$form['account']['pass']['pass1']['#title'] = "";
+    //$form['account']['pass']['pass1']['#attributes']['placeholder'] = "Password";
+    //$form['account']['pass']['pass2']['#title'] = "";
+    //$form['account']['pass']['pass2']['#attributes']['placeholder'] = "Confirm password";
 
 		$form['field_first_name']['widget'][0]['#title'] = "";
-		$form['field_first_name']['widget']['#attributes']['placeholder'] = "First name";
+    $form['field_first_name']['widget'][0]['value']['#title'] = "";
+		$form['field_first_name']['widget'][0]['#attributes']['placeholder'] = "First name";
+    $form['field_first_name']['widget'][0]['value']['#attributes']['placeholder'] = "First name";
+    $form['field_first_name']['#attributes']['placeholder'] = "First name";
 		$form['field_last_name']['widget']['#title'] = "";
-		$form['field_last_name']['widget']['#attributes']['placeholder'] = "Last name";
-
+    $form['field_last_name']['widget'][0]['value']['#title'] = "";
+    $form['field_last_name']['widget'][0]['#attributes']['placeholder'] = "Last name";
+    $form['field_last_name']['widget'][0]['value']['#attributes']['placeholder'] = "Last name";
+    $form['field_last_name']['#attributes']['placeholder'] = "Last name";
+  //dpm($form);
     $form['actions']['submit']['#value'] = "CREATE NEW ACCOUNT";
     $form['actions']['submit']['#attributes']['onclick'] = 'javascript:inputboxes = $("form input[type=text]"); uname = inputboxes[2].value;console.log(uname);$("form input[type=email]").val(uname);';
   }

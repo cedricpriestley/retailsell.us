@@ -47,7 +47,14 @@
     {{ page }}
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+    $ = jQuery;
     <script src="/themes/icecapusa_theme/asset/js/bootstrap.min.js"></script>
     <!--<script src="/themes/icecapusa_theme/asset/js/scripts.js"></script>-->
+    <style>
+      .navbar-fixed-top {
+        z-index:100;
+        position: absolute;
+      }
+    </style>    
   </body>
 </html>

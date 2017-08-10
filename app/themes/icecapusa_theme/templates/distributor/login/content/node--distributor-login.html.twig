@@ -93,52 +93,68 @@
   <div{{ content_attributes }}>
 
 
-<div class="full-page-bg" style="background-image: url(/themes/icecapusa_theme/asset/img/login-user-bg.jpg);">
-<!--<div class="log-overlay"></div>-->
-<div class="banner-overlay"></div>
-<div class="full-page-bg-inner">
-    <div class="row no-margin">
-        <div class="col-md-6 log-left">
-            <a href="/"><span class="login-logo" style="background-color:transparent;font-size: 30px;font-weight: bold;color: white;padding: 20px 0 0 0;">{{ site_name }}</span></a>
-            {{ label }}
-            {{ content.body }}
-        </div>
-        <div class="col-md-6 log-right">
-            <div class="login-box-outer">
-            <div class="login-box row no-margin">
-                <div class="col-md-12">
-                    <a class="log-blk-btn" href="/buyer/login">ALREADY HAVE AN ACCOUNT?</a>
-                    <h3>Create a New Account</h3>
-                </div>
-                <div class="col-md-12">
-                    {{ register_form }}
-                </div>
-                <div class="col-md-12">
-                    <p class="helper">Or <a href="/buyer/login">Sign in</a> with your buyer account.</p>   
-                </div>
 
-            </div>
 
-            <div class="log-copy"><p class="no-margin">© 2017 IceCap USA</p></div>
+<link href="/themes/icecapusa_theme/css/app.css" rel="stylesheet">
+<!-- CSRF Token -->
+<meta name="csrf-token" content="XRwPRLpqnVa05r9TKttWCmI2jT1xL4yK6tZRjAG5">
+<!-- Scripts -->
+<script>
+    window.Laravel = {"csrfToken":"XRwPRLpqnVa05r9TKttWCmI2jT1xL4yK6tZRjAG5"}
+</script>
+
+<div class="full-page-bg" style="background-image: url(/themes/icecapusa_theme/asset/img/login-bg.jpg);">
+    <!--<div class="log-overlay"></div>-->
+      <div class="banner-overlay"></div>
+        <div class="full-page-bg-inner">
+            <div class="row no-margin">
+                <div class="col-md-6 log-left">
+                        <a href="/"><span class="login-logo" style="background-color:transparent;font-size: 30px;font-weight: bold;color: white;padding: 20px 0 0 0;">{{ site_name }}</span></a>
+                {{ label }}
+                {{ content.body }}
+                </div>
+                <div class="col-md-6 log-right">
+                    <div class="login-box-outer">
+                        <div class="login-box row no-margin">
+                            <div class="col-md-12">
+                                <a class="log-blk-btn" href="/distributor/register">CREATE NEW ACCOUNT</a>
+                                <h3>Sign In</h3>
+                            </div>
+
+                            <div class="col-md-12">
+                                {{ login_form }}
+                            </div>
+                            <!--
+                            <div class="col-md-12">
+                                <p class="helper"> <a href="/buyer/password/reset">Forgot Password</a></p>   
+                            </div>
+                            -->  
+                        </div>
+                        <div class="log-copy"><p class="no-margin">© 2017 IceCap USA</p></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <style>
-  #edit-submit {
-    background-color: #37b38b;
-    padding: 20px;
-    display: block;
-    color: #fff;
-    text-align: center;
-    padding-bottom: 16px;
-    width: 100%;
-    border: 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: auto;
-  }
+#edit-submit {
+background-color: #37b38b;
+padding: 20px;
+display: block;
+color: #fff;
+text-align: center;
+padding-bottom: 16px;
+width: 100%;
+border: 0;
+margin-top: 20px;
+margin-bottom: 20px;
+height: auto;
+}
 </style>
+
+
+
 
   </div>
 
