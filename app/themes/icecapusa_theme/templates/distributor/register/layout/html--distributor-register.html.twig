@@ -31,9 +31,9 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
-    <link href="/themes/icecapusa_theme/asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/themes/icecapusa_theme/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/themes/icecapusa_theme/asset/css/style.css" rel="stylesheet">    
+    <link href="{{ theme_path }}asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ theme_path }}asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ theme_path }}asset/css/style.css" rel="stylesheet">    
   </head>
   <body{{ attributes }}>
     {#
@@ -47,8 +47,8 @@
     {{ page }}
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-    <script src="/themes/icecapusa_theme/asset/js/bootstrap.min.js"></script>
-    <!--<script src="/themes/icecapusa_theme/asset/js/scripts.js"></script>-->
+    <script src="{{ theme_path }}asset/js/bootstrap.min.js"></script>
+    <!--<script src="{{ theme_path }}asset/js/scripts.js"></script>-->
     <script>
       jQuery(document).ready(function() {
         jQuery(jQuery("form input[type='password']")[0]).attr('placeholder', 'Password');

@@ -25,36 +25,39 @@
 #}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <head-placeholder token="{{ placeholder_token|raw }}">
+<head>
     <title>{{ head_title|safe_join(' | ') }}</title>
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <css-placeholder token="{{ placeholder_token|raw }}">
-    <js-placeholder token="{{ placeholder_token|raw }}">
-    <link href="/themes/icecapusa_theme/asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/themes/icecapusa_theme/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/themes/icecapusa_theme/asset/css/style.css" rel="stylesheet">    
-  </head>
-  <body{{ attributes }}>
-    {#
-      Keyboard navigation/accessibility link to main content section in
-      page.html.twig.
-    #}
-    <a href="#main-content" class="visually-hidden focusable">
-      {{ 'Skip to main content'|t }}
-    </a>
-    {{ page_top }}
-    {{ page }}
-    {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-    $ = jQuery;
-    <script src="/themes/icecapusa_theme/asset/js/bootstrap.min.js"></script>
-    <!--<script src="/themes/icecapusa_theme/asset/js/scripts.js"></script>-->
-    <style>
-      .navbar-fixed-top {
-        z-index:100;
-        position: absolute;
-      }
-    </style>    
-  </body>
+    <js-placeholder token="{{ placeholder_token|raw }}">    
+
+    <link href="{{ theme_path }}asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ theme_path }}asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ theme_path }}asset/css/style.css" rel="stylesheet">
+</head>
+<body{{ attributes }}>
+  {#
+    Keyboard navigation/accessibility link to main content section in
+    page.html.twig.
+  #}
+  <a href="#main-content" class="visually-hidden focusable">
+    {{ 'Skip to main content'|t }}
+  </a>
+  {{ page_top }}
+  {{ page }}
+  {{ page_bottom }}
+  <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+  <!--<script src="{{ theme_path }}asset/js/jquery.min.js"></script>-->
+  <script src="{{ theme_path }}asset/js/bootstrap.min.js"></script>
+  <script src="{{ theme_path }}asset/js/scripts.js"></script>
+  <!--<style>
+    .navbar-fixed-top {
+      z-index:100;
+      position: absolute;
+    }
+  </style>-->
+</body>
 </html>

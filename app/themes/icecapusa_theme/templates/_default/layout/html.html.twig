@@ -26,14 +26,10 @@
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <head-placeholder token="{{ placeholder_token|raw }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
-    <link href="/themes/icecapusa_theme/asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/themes/icecapusa_theme/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/themes/icecapusa_theme/asset/css/style.css" rel="stylesheet">    
   </head>
   <body{{ attributes }}>
     {#
@@ -47,13 +43,5 @@
     {{ page }}
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-    <script src="/themes/icecapusa_theme/asset/js/bootstrap.min.js"></script>
-    <script src="/themes/icecapusa_theme/asset/js/scripts.js"></script>
-    <style>
-      .navbar-fixed-top {
-        z-index:100;
-        position: absolute;
-      }
-    </style>    
   </body>
 </html>

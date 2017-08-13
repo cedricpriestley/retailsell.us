@@ -92,22 +92,24 @@
 
   <div{{ content_attributes }}>
 
+  <link href="{{ theme_path }}css/app.css" rel="stylesheet">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="PDMSsFjRtN5QruXtJXiYk7I39ULr92m3WZfN5uuX">
+  <!-- Scripts -->
+  <script>
+      window.Laravel = {"csrfToken":"PDMSsFjRtN5QruXtJXiYk7I39ULr92m3WZfN5uuX"}
+  </script>
 
-<link href="/themes/icecapusa_theme/css/app.css" rel="stylesheet">
-<!-- CSRF Token -->
-<meta name="csrf-token" content="PDMSsFjRtN5QruXtJXiYk7I39ULr92m3WZfN5uuX">
-<!-- Scripts -->
-<script>
-    window.Laravel = {"csrfToken":"PDMSsFjRtN5QruXtJXiYk7I39ULr92m3WZfN5uuX"}
-</script>
-
-<div class="full-page-bg" style="background-image: url(/themes/icecapusa_theme/asset/img/login-bg.jpg);">
-    <!--<div class="log-overlay"></div>-->
+<div class="full-page-bg" style="background-image: url({{ theme_path }}asset/img/login-bg.jpg);">
+    <div class="log-overlay"></div>
     <div class="banner-overlay"></div>
         <div class="full-page-bg-inner">
             <div class="row no-margin">
                 <div class="col-md-6 log-left">
-                    <a href="/"><span class="login-logo" style="background-color:transparent;font-size: 30px;font-weight: bold;color: white;padding: 20px 0 0 0;">{{ site_name }}</span></a>
+                    <!--<a href="/">
+                    <span class="login-logo" style="background-color:transparent;font-size: 30px;font-weight: bold;color: white;padding: 20px 0 0 0;">{{ site_name }}</span>
+                    </a>-->
+                    <span class="login-logo"><img src="{{ theme_path }}/logo-black.png" alt="logo"></span>
                 {{ label }}
                 {{ content.body }}
                 </div>
@@ -115,15 +117,15 @@
                     <div class="login-box-outer">
                         <div class="login-box row no-margin">
                             <div class="col-md-12">
-<a class="log-blk-btn" href="/distributor/login">ALREADY REGISTERED?</a>
-<h3>Sign In</h3>
-</div>
+                              <a class="log-blk-btn" href="/distributor/login">ALREADY REGISTERED?</a>
+                              <h3>Sign In</h3>
+                            </div>
 
                 <div class="col-md-12">
                     {{ register_form }}
                 </div>
                         </div>
-                        <div class="log-copy"><p class="no-margin">© 2017 IceCap USA</p></div>
+                        <div class="log-copy"><p class="no-margin">© 2017 ICECAP USA</p></div>
                     </div>
                 </div>
             </div>
