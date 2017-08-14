@@ -37,6 +37,16 @@
     <link href="{{ theme_path }}asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ theme_path }}asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ theme_path }}asset/css/style.css" rel="stylesheet">
+    <style>
+      .navbar-fixed-top {
+        z-index:100;
+        position: absolute;
+      }
+      
+      #toolbar-administration {
+        visibility:hidden;
+      }
+    </style>    
 </head>
 <body{{ attributes }}>
   {#
@@ -46,18 +56,11 @@
   <a href="#main-content" class="visually-hidden focusable">
     {{ 'Skip to main content'|t }}
   </a>
-  {{ page_top }}
   {{ page }}
   {{ page_bottom }}
   <js-bottom-placeholder token="{{ placeholder_token|raw }}">
-  <!--<script src="{{ theme_path }}asset/js/jquery.min.js"></script>-->
+  <script src="{{ theme_path }}asset/js/jquery.min.js"></script>
   <script src="{{ theme_path }}asset/js/bootstrap.min.js"></script>
   <script src="{{ theme_path }}asset/js/scripts.js"></script>
-  <!--<style>
-    .navbar-fixed-top {
-      z-index:100;
-      position: absolute;
-    }
-  </style>-->
 </body>
 </html>

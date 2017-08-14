@@ -1,6 +1,6 @@
-name: IceCap USA custom hooks
+name: IceCap USA customization
 type: module
-description: 'Provides custom hooks for IceCap USA.'
+description: 'Provides custom functionality for IceCap USA.'
 package: IceCap USA
 
 version: '8.x-1.0'

@@ -12,9 +12,31 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_preprocess_HOOK() for HTML document templates.
  */
 function icecapusa_theme_preprocess_html(&$variables) {
+
   global $base_url;
 
   $variables['theme_path'] = $base_url . "/" . $variables['directory'] . "/";
+
+  $current_alias = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_alias);
+
+  if (!\Drupal::currentUser()->isAnonymous()) {
+    if ($result == "/buyer/login" || $result == "/buyer/register") {
+      $url = "/buyer/dashboard";
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
+      $response->send();
+    }
+    if (startsWith("/distributor", $result)) {
+      $url = "/distributor/dashboard";
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
+      $response->send();      
+    }
+    if (startsWith("/administrator", $result)) {
+      $url = "/administrator/dashboard";
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
+      $response->send();      
+    }               
+  }  
 }
 
   /**
@@ -28,19 +50,6 @@ function icecapusa_theme_preprocess_node(&$variables) {
 
   $current_alias = \Drupal::service('path.current')->getPath();
   $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_alias);
-
-  if (!\Drupal::currentUser()->isAnonymous()) {
-    if ($result == "/buyer" || $result == "/buyer/login" || $result == "/buyer/register") {
-      $url = "/buyer/dashboard";
-      $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
-      //$response->send();
-    }
-    if ($result == "/distributor" || $result == "/distributor/login" || $result == "/distributor/register") {
-      $url = "/distributor/dashboard";
-      $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
-      //$response->send();      
-    }           
-  }
 
   if ($result == "/buyer/login" || $result == "/distributor/login") {
     $form = Drupal::formBuilder()->getForm(Drupal\user\Form\UserLoginForm::class); 
@@ -375,4 +384,14 @@ function icecapusa_theme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface
     $form['actions']['submit']['#value'] = "CREATE NEW ACCOUNT";
     $form['actions']['submit']['#attributes']['onclick'] = 'javascript:inputboxes = $("form input[type=text]"); uname = inputboxes[2].value;console.log(uname);$("form input[type=email]").val(uname);';
   }
+}
+
+function startsWith($needle, $haystack) {
+    // search backwards starting from haystack length characters from the end
+    return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+}
+
+function endsWith($needle, $haystack) {
+    // search forward starting from end minus needle length characters
+    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
 }

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tranxit</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="http://18.220.43.48/favicon.ico"/>
+
+    <link href="http://18.220.43.48/asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://18.220.43.48/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://18.220.43.48/asset/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="overlay" id="overlayer" data-toggle="offcanvas"></div>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li>
+                </li>
+                <li class="full-white">
+                    <a href="http://18.220.43.48/register">SIGN UP To RIDE</a>
+                </li>
+                <li class="white-border">
+                    <a href="http://18.220.43.48/provider/login">BECOME A DRIVER</a>
+                </li>
+                <li>
+                    <a href="http://18.220.43.48/ride">Ride</a>
+                </li>
+                <li>
+                    <a href="http://18.220.43.48/drive">Drive</a>
+                </li>
+                <li>
+                    <a href="#">Help</a>
+                </li>
+                <li>
+                    <a href="#">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#">Terms and Conditions</a>
+                </li>
+                <li>
+                    <a href=""><img src="http://18.220.43.48/asset/img/appstore-white.png"></a>
+                </li>
+                <li>
+                    <a href=""><img src="http://18.220.43.48/asset/img/playstore-white.png"></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="page-content-wrapper">
+            <header>
+                <nav class="navbar navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                                <span class="hamb-top"></span>
+                                <span class="hamb-middle"></span>
+                                <span class="hamb-bottom"></span>
+                            </button>
+
+                            <a class="navbar-brand" href="http://18.220.43.48"><img src="http://18.220.43.48/logo-black.png"></a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li  class="active" >
+                                    <a href="http://18.220.43.48/ride">Ride</a>
+                                </li>
+                                <li >
+                                    <a href="http://18.220.43.48/drive">Drive</a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#">Help</a></li>
+                                <li><a href="http://18.220.43.48/login">Signin</a></li>
+                                <li><a class="menu-btn" href="http://18.220.43.48/drive">Become a Driver</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            
+        <div class="banner row no-margin" style="background-image: url('http://18.220.43.48/asset/img/banner-bg.jpg');">
+        <div class="banner-overlay"></div>
+        <div class="container">
+            <div class="col-md-8">
+                <h2 class="banner-head"><span class="strong">Always the ride you want</span><br>The best way to get wherever you’re going</h2>
+            </div>
+            <div class="col-md-4">
+                <div class="banner-form">
+                    <div class="row no-margin fields">
+                        <div class="left">
+                            <img src="http://18.220.43.48/asset/img/ride-form-icon.png">
+                        </div>
+                        <div class="right">
+                            <a href="http://18.220.43.48/login">
+                                <h3>Ride with Tranxit</h3>
+                                <h5>SIGN IN <i class="fa fa-chevron-right"></i></h5>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row no-margin fields">
+                        <div class="left">
+                            <img src="http://18.220.43.48/asset/img/ride-form-icon.png">
+                        </div>
+                        <div class="right">
+                            <a href="http://18.220.43.48/register">
+                                <h3>Sign up to Ride</h3>
+                                <h5>SIGN UP <i class="fa fa-chevron-right"></i></h5>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p class="note-or">Or <a href="http://18.220.43.48/provider/login">sign in</a> with your driver account.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row white-section no-margin">
+        <div class="container">
+            
+            <div class="col-md-4 content-block small">
+                <h2>Tap the app, get a ride</h2>
+                <div class="title-divider"></div>
+                <p>Tranxit is the smartest way to get around. One tap and a car comes directly to you. Your driver knows exactly where to go. And you can pay with either cash or card.</p>
+            </div>
+
+            <div class="col-md-4 content-block small">
+                <h2>Choose how to pay</h2>
+                <div class="title-divider"></div>
+                <p>When you arrive at your destination, either pay with cash or have your card automatically charged. With Tranxit, the choice is yours.</p>
+            </div>
+
+            <div class="col-md-4 content-block small">
+                <h2>You rate, we listen</h2>
+                <div class="title-divider"></div>
+                <p>Rate your driver and provide anonymous feedback about your trip. Your input helps us make every ride a 5-star experience.</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row gray-section no-margin">
+        <div class="container">                
+            <h2 class="sub-head"><span class="strong">There’s a ride for every price</span><br>And any occasion</h2>
+
+            <div class="car-tab">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" href="#economy">ECONOMY</a></li>
+                  <li><a data-toggle="tab" href="#premium">PREMIUM</a></li>
+                  <li><a data-toggle="tab" href="#accessibility">ACCESSIBILITY</a></li>
+                  <li><a data-toggle="tab" href="#carpool">CARPOOL</a></li>
+                </ul>
+
+                <div class="tab-content">
+                  <div id="economy" class="tab-pane fade in active">
+                    <div class="car-slide">
+                        <img src="http://18.220.43.48/asset/img/car-slide1.png">
+                    </div>
+                  </div>
+                  <div id="premium" class="tab-pane fade">
+                    <div class="car-slide">
+                        <img src="http://18.220.43.48/asset/img/car-slide2.png">
+                    </div>
+                  </div>
+                  <div id="accessibility" class="tab-pane fade">
+                    <div class="car-slide">
+                        <img src="http://18.220.43.48/asset/img/car-slide3.png">
+                    </div>
+                  </div>
+
+                  <div id="carpool" class="tab-pane fade">
+                    <div class="car-slide">
+                        <img src="http://18.220.43.48/asset/img/car-slide4.png">
+                    </div>
+                  </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row white-section no-margin">
+        <div class="container">
+            
+            <div class="col-md-6 content-block">
+                <h2 class="two-title"><span class="light">Pricing</span><br><span class="strong">Get a fare estimate</span></h2>
+                <div class="title-divider"></div>
+                <form>
+                <div class="input-group fare-form">
+                    <input type="text" class="form-control"  placeholder="Enter pickup location" >                               
+                </div>
+
+                <div class="input-group fare-form no-border-right">
+                    <input type="text" class="form-control"  placeholder="Enter drop location" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>  
+                    </span>
+                </div>
+
+                <div class="fare-detail">
+
+                    <div class=fare-radio>
+                        <input type="radio" name="fare" id="bmw" checked="checked">
+                        <label for="bmw">
+                            <div class="fade-radio-inner">
+                                <div class="name">BMW</div>
+                                <div class="rate">Rs.1500</div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class=fare-radio>
+                        <input type="radio" name="fare" id="audi">
+                        <label for="audi">
+                            <div class="fade-radio-inner">
+                                <div class="name">Audi</div>
+                                <div class="rate">Rs.2500</div>
+                            </div>
+                        </label>
+                    </div>
+
+
+                </div>
+
+                <button type="submit" class="full-primary-btn fare-btn">RIDE NOW</button>
+
+                </form>
+            </div>
+
+            <div class="col-md-6 map-right">
+                <div class="map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d386950.6511603643!2d-73.70231446529533!3d40.738882125234106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNueva+York!5e0!3m2!1ses-419!2sus!4v1445032011908" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>                            
+            </div>
+            
+        </div>
+    </div>          
+
+    <div class="row gray-section no-margin">
+        <div class="container">                
+            <div class="col-md-6 content-block">
+                <h2>Safety Putting people first</h2>
+                <div class="title-divider"></div>
+                <p>Whether riding in the backseat or driving up front, every part of the Tranxit experience has been designed around your safety and security.</p>
+                <a class="content-more" href="#">HOW WE KEEP YOU SAFE <i class="fa fa-chevron-right"></i></a>
+            </div>
+            <div class="col-md-6 img-block text-center"> 
+                <img src="http://18.220.43.48/asset/img/seat-belt.jpg">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row find-city no-margin">
+        <div class="container">
+            <h2>Tranxit is in Chennai</h2>
+            <form>
+                <div class="input-group find-form">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <i class="fa fa-arrow-right"></i>
+                        </button>  
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+        <div class="footer-city row no-margin" style="background-image: url(http://18.220.43.48/asset/img/footer-city.png);"></div>
+            <div class="page-content">
+                <div class="footer row no-margin">
+                    <div class="container">
+                        <div class="footer-logo row no-margin">
+                            <div class="logo-img">
+                                <img src="http://18.220.43.48/logo-black.png">
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <ul>
+                                    <li><a href="#">Ride</a></li>
+                                    <li><a href="#">Drive</a></li>
+                                    <li><a href="#">Cities</a></li>
+                                    <li><a href="#">Fare Estimate</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <ul>
+                                    <li><a href="http://18.220.43.48/ride">Signup to Ride</a></li>
+                                    <li><a href="http://18.220.43.48/drive">Become a Driver</a></li>
+                                    <li><a href="http://18.220.43.48/ride">Ride Now</a></li>                            
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <h5>Get App on</h5>
+                                <ul class="app">
+                                    <li>
+                                        <a href="">
+                                            <img src="http://18.220.43.48/asset/img/appstore.png">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <img src="http://18.220.43.48/asset/img/playstore.png">
+                                        </a>
+                                    </li>                                                        
+                                </ul>                        
+                            </div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">                        
+                                <h5>Connect us</h5>
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row no-margin">
+                            <div class="col-md-12 copy">
+                                <p>&copy; 2017 Appoets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://18.220.43.48/asset/js/jquery.min.js"></script>
+    <script src="http://18.220.43.48/asset/js/bootstrap.min.js"></script>
+    <script src="http://18.220.43.48/asset/js/scripts.js"></script>
+</body>
+</html>
