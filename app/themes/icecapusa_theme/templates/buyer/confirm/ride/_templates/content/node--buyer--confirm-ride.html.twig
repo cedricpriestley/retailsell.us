@@ -1,0 +1,198 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ */
+#}
+<article{{ attributes }}>
+
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes }}>
+    {{ content }}
+<div class="col-md-9">
+    <div class="dash-content">
+        <div class="row no-margin">
+            <div class="col-md-12">
+                <h4 class="page-title">{{ label }}</h4>
+            </div>
+        </div>
+                <div class="row no-margin">
+            <div class="col-md-6">
+                <form action="{{ url('<front>') }}buyer/create/ride" method="POST" id="create_ride">
+                <input type="hidden" name="_token" value="2mYiNTi8Okf76gGRd4HuFmY1hehpCLmh9tNtppPh">
+                    <dl class="dl-horizontal left-right">
+                        <dt>Type</dt>
+                        <dd>Sedan</dd>
+                        <dt>Total Distance</dt>
+                        <dd>2 Kms</dd>
+                        <dt>ETA</dt>
+                        <dd>8 mins</dd>
+                        <dt>Estimated Fare</dt>
+                        <dd>$20.2</dd>
+                        <hr>
+                                            </dl>
+
+                    <input type="hidden" name="s_address" value="New Amsterdam Library, Murray Street, New York, NY, United States">
+                    <input type="hidden" name="d_address" value="Chobani SoHo, Prince Street, New York, NY, United States">
+                    <input type="hidden" name="s_latitude" value="40.7136403">
+                    <input type="hidden" name="s_longitude" value="-74.00784520000002">
+                    <input type="hidden" name="d_latitude" value="40.7257536">
+                    <input type="hidden" name="d_longitude" value="-74.00113820000001">
+                    <input type="hidden" name="service_type" value="1">
+                    <input type="hidden" name="distance" value="2">
+
+                    <p>Payment Methods</p>
+                    <select class="form-control" name="payment_mode" id="payment_mode" onchange="card(this.value);">
+                      <option value="CASH">CASH</option>
+                                                                    <option value="CARD">CARD</option>
+                                                                </select>
+                    <br>
+
+                                                                    <select class="form-control" name="card_id" style="display: none;" id="card_id">
+                          <option value="">Select Card</option>
+                                                      <option value="card_1Ar7lJLN6lzulolDRKkIVcyn">American Express **** **** **** 0005</option>
+                                                  </select>
+                                            
+                    <button type="submit" class="half-primary-btn fare-btn">Ride Now</button>
+                    <button type="button" class="half-secondary-btn fare-btn" data-toggle="modal" data-target="#schedule_modal">Schedule Later</button>
+
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <div class="user-request-map">
+                                        <div class="map-static" style="background-image: url(https://maps.googleapis.com/maps/api/staticmap?autoscale=1&amp;size=600x450&amp;maptype=roadmap&amp;format=png&amp;visual_refresh=true&amp;markers=icon:{{ theme_path }}asset/img/marker-start.png%7C40.7136403,-74.00784520000002&amp;markers=icon:{{ theme_path }}asset/img/marker-start.png%7C40.7257536,-74.00113820000001&amp;path=color:0x191919|weight:8|40.7136403,-74.00784520000002|40.7257536,-74.00113820000001&amp;key=AIzaSyDEJUPrYJXDZNgb9KATSHAQYP-7lcchUts);">
+                    </div>
+                    <div class="from-to row no-margin">
+                        <div class="from">
+                            <h5>FROM</h5>
+                            <p>New Amsterdam Library, Murray Street, New York, NY, United States</p>
+                        </div>
+                        <div class="to">
+                            <h5>TO</h5>
+                            <p>Chobani SoHo, Prince Street, New York, NY, United States</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Schedule Modal -->
+<div id="schedule_modal" class="modal fade schedule-modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Schedule a Ride</h4>
+      </div>
+      <form>
+      <div class="modal-body">
+        
+        <label>Date</label>
+        <input value="08/15/2017" type="text" id="datepicker" placeholder="Date" name="schedule_date">
+        <label>Time</label>
+        <input value="16:20" type="text" id="timepicker" placeholder="Time" name="schedule_time">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="schedule_button" class="btn btn-default" data-dismiss="modal">Schedule Ride</button>
+      </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+  </div>
+
+</article>

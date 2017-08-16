@@ -1,0 +1,234 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ */
+#}
+<article{{ attributes }}>
+
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes }}>
+    {{ content }}
+<div class="col-md-9">
+    <div class="dash-content">
+        <div class="row no-margin">
+            <div class="col-md-12">
+                <h4 class="page-title">{{ label }}</h4>
+            </div>
+        </div>
+                <div class="row no-margin payment">
+            <div class="col-md-12">
+                <h5 class="btm-border"><strong>Payment Methods</strong> 
+                                <a href="#" class="sub-right pull-right" data-toggle="modal" data-target="#add-card-modal">Add Card</a>
+                                </h5>
+
+                <div class="pay-option">
+                    <h6><img src="{{ theme_path }}asset/img/cash-icon.png"> CASH </h6>
+                </div>
+                                                <div class="pay-option">
+                    <h6>
+                        <img src="{{ theme_path }}asset/img/card-icon.png"> American Express **** **** **** 0005 
+                         
+                        <form action="{{ url('<front>') }}buyer/card/destory" method="POST" class="pull-right">
+                            <input type="hidden" name="_token" value="2mYiNTi8Okf76gGRd4HuFmY1hehpCLmh9tNtppPh">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="card_id" value="card_1Ar7lJLN6lzulolDRKkIVcyn">
+                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm" >Delete</button>
+                        </form>
+                    </h6>
+                </div>
+                                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <!-- Add Card Modal -->
+    <div id="add-card-modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" >
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add Card</h4>
+          </div>
+            <form id="payment-form" action="{{ url('<front>') }}buyer/card" method="POST" >
+                <input type="hidden" name="_token" value="2mYiNTi8Okf76gGRd4HuFmY1hehpCLmh9tNtppPh">
+          <div class="modal-body">
+            <div class="row no-margin" id="card-payment">
+                <div class="form-group col-md-12 col-sm-12">
+                    <label>Full Name</label>
+                    <input data-stripe="name" autocomplete="off" required type="text" class="form-control" placeholder="Full Name">
+                </div>
+                <div class="form-group col-md-12 col-sm-12">
+                    <label>Card Number</label>
+                    <input data-stripe="number" type="text" onkeypress="return isNumberKey(event);" required autocomplete="off" maxlength="16" class="form-control" placeholder="Card Number">
+                </div>
+                <div class="form-group col-md-4 col-sm-12">
+                    <label>Month</label>
+                    <input type="text" onkeypress="return isNumberKey(event);" maxlength="2" required autocomplete="off" class="form-control" data-stripe="exp-month" placeholder="MM">
+                </div>
+                <div class="form-group col-md-4 col-sm-12">
+                    <label>Year</label>
+                    <input type="text" onkeypress="return isNumberKey(event);" maxlength="2" required autocomplete="off" data-stripe="exp-year" class="form-control" placeholder="YY">
+                </div>
+                <div class="form-group col-md-4 col-sm-12">
+                    <label>CVV</label>
+                    <input type="text" data-stripe="cvc" onkeypress="return isNumberKey(event);" required autocomplete="off" maxlength="4" class="form-control" placeholder="CVV">
+                </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-default">Add Card</button>
+          </div>
+        </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    
+
+        </div>
+    </div>
+
+
+        <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+    <script type="text/javascript">
+        Stripe.setPublishableKey("pk_test_JurHzK4gJkIzpWlxPQbIQFMF");
+
+         var stripeResponseHandler = function (status, response) {
+            var $form = $('#payment-form');
+
+            console.log(response);
+
+            if (response.error) {
+                // Show the errors on the form
+                $form.find('.payment-errors').text(response.error.message);
+                $form.find('button').prop('disabled', false);
+                alert('error');
+
+            } else {
+                // token contains id, last4, and card type
+                var token = response.id;
+                // Insert the token into the form so it gets submitted to the server
+                $form.append($('<input type="hidden" id="stripeToken" name="stripe_token" />').val(token));
+                jQuery($form.get(0)).submit();
+            }
+        };
+                
+        $('#payment-form').submit(function (e) {
+            
+            if ($('#stripeToken').length == 0)
+            {
+                console.log('ok');
+                var $form = $(this);
+                $form.find('button').prop('disabled', true);
+                console.log($form);
+                Stripe.card.createToken($form, stripeResponseHandler);
+                return false;
+            }
+        });
+
+    </script>
+    <script type="text/javascript">
+        function isNumberKey(evt)
+        {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode != 46 && charCode > 31 
+            && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
+        }
+    </script>
+    </article>

@@ -39,7 +39,17 @@ function icecapusa_theme_preprocess_html(&$variables) {
   }  
 }
 
-  /**
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ */
+function icecapusa_theme_preprocess_page(&$variables) {
+
+  global $base_url;
+
+  $variables['theme_path'] = $base_url . "/" . $variables['directory'] . "/";
+}
+
+/**
  * Implements hook_preprocess_HOOK() for HTML document templates.
  */
 function icecapusa_theme_preprocess_node(&$variables) {
@@ -304,6 +314,8 @@ function icecapusa_theme_theme_suggestions_field_alter(array &$suggestions, arra
       $suggestions = array();
       $suggestion = "";
       $i=0;
+      
+      $suggestions[] = "field__" . strtolower($variables['element']['#title']);
         
       foreach ($parts as $key=>$part) {
         
