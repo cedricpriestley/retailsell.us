@@ -93,63 +93,270 @@
   <div{{ content_attributes }}>
     {{ page.content }}           
 <div class="col-md-9">
-    <div class="dash-content">
-        <div class="row no-margin">
-            <div class="col-md-12">
-                <h4 class="page-title">{{ label }}</h4>
-            </div>
-        </div>
-                <div class="row no-margin">
-            <div class="col-md-12">
-                <form action="{{ url('<front>') }}buyer/ride" method="GET" onkeypress="return disableEnterKey(event);">
-                
-                    <div class="input-group dash-form">
-                        <input type="text" class="form-control" id="origin-input" name="s_address"  placeholder="Enter pickup location">
-                    </div>
-
-                    <div class="input-group dash-form">
-                        <input type="text" class="form-control" id="destination-input" name="d_address"  placeholder="Enter drop location" >
-                    </div>
-
-                    <input type="hidden" name="s_latitude" id="origin_latitude">
-                    <input type="hidden" name="s_longitude" id="origin_longitude">
-                    <input type="hidden" name="d_latitude" id="destination_latitude">
-                    <input type="hidden" name="d_longitude" id="destination_longitude">
-                    <input type="hidden" name="current_longitude" id="long">
-                    <input type="hidden" name="current_latitude" id="lat">
-
-{{ product_list }}
-                    <div class="product-detail">
-                        <div class="car-radio">
-                            <input type="radio" 
-                                name="service_type"
-                                value="{{ i }}"
-                                id="service_{{ i }}"
-                                 checked="checked" >
-                            <label for="service_{{ i }}">
-                                <div class="car-radio-inner">
-                                    <div class="img"><img src="{{ theme_path }}/asset/img/cars/sedan.png"></div>-->
-                                    <div class="name"><span>Sedan</span></div>
-                                </div>
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <button type="submit"  class="full-primary-btn fare-btn">Order Now</button>
-
-                </form>
-            </div>
-            <!--
-            <div class="col-md-6">
-                <div class="map-responsive">
-                    <div id="map" style="width: 100%; height: 450px;"></div>
-                </div> 
-            </div>
-            
-        </div>
+<div class="dash-content">
+ <div class="row no-margin">
+  <div class="col-md-12">
+   <h4 class="page-title">{{ label }}</h4>
+  </div>
+ </div>
+ <div class="row no-margin">
+  <div class="col-md-6">
+   <form action="{{ url('<front>') }}buyer/confirm/ride" method="GET" onkeypress="return disableEnterKey(event);">
+    <div class="input-group dash-form">
+     <input type="text" class="form-control" id="origin-input" name="s_address" placeholder="Enter pickup location" autocomplete="off">
     </div>
+    <div class="input-group dash-form">
+     <input type="text" class="form-control" id="destination-input" name="d_address" placeholder="Enter drop location" autocomplete="off">
+    </div>
+    <input type="hidden" name="s_latitude" id="origin_latitude">
+    <input type="hidden" name="s_longitude" id="origin_longitude">
+    <input type="hidden" name="d_latitude" id="destination_latitude">
+    <input type="hidden" name="d_longitude" id="destination_longitude">
+    <input type="hidden" name="current_longitude" id="long">
+    <input type="hidden" name="current_latitude" id="lat">
+    <div class="car-detail slick-initialized slick-slider">
+     <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+     <div aria-live="polite" class="slick-list draggable">
+      <div class="slick-track" role="listbox" style="opacity: 1; width: 2130px; transform: translate3d(-639px, 0px, 0px);">
+       <div class="car-radio slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" tabindex="-1" style="width: 213px;">
+        <input type="radio" name="service_type" value="2" id="" tabindex="-1">
+        <label for="service_2">
+         <div class="car-radio-inner">
+          <div class="img"><img src="{{ theme_path }}asset/img/cars/hatchback.png"></div>
+          <div class="name"><span>Hatchback</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1" style="width: 213px;">
+        <input type="radio" name="service_type" value="3" id="" tabindex="-1">
+        <label for="service_3">
+         <div class="car-radio-inner">
+          <div class="img"><img src="{{ theme_path }}asset/img/cars/suv.png"></div>
+          <div class="name"><span>SUV</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 213px;">
+        <input type="radio" name="service_type" value="4" id="" tabindex="-1">
+        <label for="service_4">
+         <div class="car-radio-inner">
+          <div class="img"><img src="{{ theme_path }}asset/img/cars/limo.png"></div>
+          <div class="name"><span>Limousine</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 213px;">
+        <input type="radio" name="service_type" value="1" id="service_1" checked="checked" tabindex="0">
+        <label for="service_1">
+         <div class="car-radio-inner">
+          <div class="img"><img src="{{ theme_path }}asset/img/cars/sedan.png"></div>
+          <div class="name"><span>Sedan</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 213px;">
+        <input type="radio" name="service_type" value="2" id="service_2" tabindex="0">
+        <label for="service_2">
+         <div class="car-radio-inner">
+          <div class="img"><img src="{{ theme_path }}asset/img/cars/hatchback.png"></div>
+          <div class="name"><span>Hatchback</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 213px;">
+        <input type="radio" name="service_type" value="3" id="service_3" tabindex="0">
+        <label for="service_3">
+         <div class="car-radio-inner">
+          <div class="img"><img src="{{ theme_path }}asset/img/cars/suv.png"></div>
+          <div class="name"><span>SUV</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 213px;">
+        <input type="radio" name="service_type" value="4" id="service_4" tabindex="-1">
+        <label for="service_4">
+         <div class="car-radio-inner">
+          <div class="img"><img src="http://localhost/asset/img/cars/limo.png"></div>
+          <div class="name"><span>Limousine</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 213px;">
+        <input type="radio" name="service_type" value="1" id="" checked="checked" tabindex="-1">
+        <label for="service_1">
+         <div class="car-radio-inner">
+          <div class="img"><img src="http://localhost/asset/img/cars/sedan.png"></div>
+          <div class="name"><span>Sedan</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 213px;">
+        <input type="radio" name="service_type" value="2" id="" tabindex="-1">
+        <label for="service_2">
+         <div class="car-radio-inner">
+          <div class="img"><img src="http://localhost/asset/img/cars/hatchback.png"></div>
+          <div class="name"><span>Hatchback</span></div>
+         </div>
+        </label>
+       </div>
+       <div class="car-radio slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" tabindex="-1" style="width: 213px;">
+        <input type="radio" name="service_type" value="3" id="" tabindex="-1">
+        <label for="service_3">
+         <div class="car-radio-inner">
+          <div class="img"><img src="http://localhost/asset/img/cars/suv.png"></div>
+          <div class="name"><span>SUV</span></div>
+         </div>
+        </label>
+       </div>
+      </div>
+     </div>
+     <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button>
+    </div>
+    <button type="submit" class="full-primary-btn fare-btn">Ride Now</button>
+   </form>
+  </div>
+  <div class="col-md-6">
+   <div class="map-responsive">
+    <div id="map" style="width: 100%; height: 450px; position: relative; overflow: hidden;">
+     <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+      <div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
+       <div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default;">
+        <div style="z-index: 1; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
+          <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
+           <div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;">
+            <div style="width: 256px; height: 256px; position: absolute; left: 51px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 307px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 307px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 51px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 51px; top: 447px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 307px; top: 447px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: -205px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 563px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: -205px; top: 447px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 563px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: -205px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; position: absolute; left: 563px; top: 447px;"></div>
+           </div>
+          </div>
+         </div>
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div>
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div>
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;">
+          <div style="position: absolute; left: 0px; top: 0px; z-index: -1;">
+           <div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;">
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 51px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 307px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 307px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 51px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 51px; top: 447px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 307px; top: 447px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -205px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 563px; top: 191px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -205px; top: 447px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 563px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -205px; top: -65px;"></div>
+            <div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 563px; top: 447px;"></div>
+           </div>
+          </div>
+         </div>
+         <div style="position: absolute; z-index: 0; left: 0px; top: 0px;">
+          <div style="overflow: hidden;"></div>
+         </div>
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
+          <div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;">
+           <div style="position: absolute; left: 307px; top: 191px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2961!3i1898!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=130501" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 307px; top: -65px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2961!3i1897!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=83800" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 51px; top: 191px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2960!3i1898!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=123200" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 51px; top: 447px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2960!3i1899!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=38830" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 307px; top: 447px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2961!3i1899!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=46131" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 51px; top: -65px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2960!3i1897!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=76499" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 563px; top: -65px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2962!3i1897!4i256!2m3!1e0!2sm!3i387083340!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=72775" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 563px; top: 191px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2962!3i1898!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=6731" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: 563px; top: 447px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2962!3i1899!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=53432" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: -205px; top: 191px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2959!3i1898!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=17225" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: -205px; top: 447px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2959!3i1899!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=63926" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+           <div style="position: absolute; left: -205px; top: -65px; transition: opacity 200ms ease-out;"><img src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i2959!3i1897!4i256!2m3!1e0!2sm!3i387083376!3m14!2sen-US!3sUS!5e18!12m1!1e68!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy5lOmd8cC5jOiNmZmY1ZjVmNSxzLmU6bC5pfHAudjpvZmYscy5lOmwudC5mfHAuYzojZmY2MTYxNjEscy5lOmwudC5zfHAuYzojZmZmNWY1ZjUscy50OjIxfHMuZTpsLnQuZnxwLmM6I2ZmYmRiZGJkLHMudDo4MXxzLmU6Z3xwLmM6I2ZmZTRlOGU5LHMudDoyfHMuZTpnfHAuYzojZmZlZWVlZWUscy50OjJ8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQwfHMuZTpnfHAuYzojZmZlNWU1ZTUscy50OjQwfHMuZTpnLmZ8cC5jOiNmZjdkZTg0MyxzLnQ6NDB8cy5lOmwudC5mfHAuYzojZmY5ZTllOWUscy50OjN8cy5lOmd8cC5jOiNmZmZmZmZmZixzLnQ6NTB8cy5lOmwudC5mfHAuYzojZmY3NTc1NzUscy50OjQ5fHMuZTpnfHAuYzojZmZkYWRhZGEscy50OjQ5fHMuZTpsLnQuZnxwLmM6I2ZmNjE2MTYxLHMudDo1MXxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZSxzLnQ6NjV8cy5lOmd8cC5jOiNmZmU1ZTVlNSxzLnQ6NjZ8cy5lOmd8cC5jOiNmZmVlZWVlZSxzLnQ6NnxzLmU6Z3xwLmM6I2ZmYzljOWM5LHMudDo2fHMuZTpnLmZ8cC5jOiNmZjliZDBlOCxzLnQ6NnxzLmU6bC50LmZ8cC5jOiNmZjllOWU5ZQ!4e0&amp;token=101595" draggable="false" alt="" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+          </div>
+         </div>
+        </div>
+        <div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0; transition-duration: 0.8s;">
+         <p class="gm-style-pbt">Use two fingers to move the map</p>
+        </div>
+        <div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;">
+         <div style="z-index: 1; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"></div>
+        </div>
+        <div style="z-index: 4; position: absolute; top: 0px; left: 0px; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);">
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div>
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div>
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div>
+         <div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div>
+        </div>
+       </div>
+       <div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;">
+        <a target="_blank" href="https://maps.google.com/maps?ll=13.05744,80.248261&amp;z=12&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3" title="Click to see this area on Google Maps" style="position: static; overflow: visible; float: none; display: inline;">
+         <div style="width: 66px; height: 26px; cursor: pointer;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div>
+        </a>
+       </div>
+       <div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 169px; top: 135px;">
+        <div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div>
+        <div style="font-size: 13px;">Map data ©2017 Google</div>
+        <div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+        <img src="https://maps.gstatic.com/mapfiles/transparent.png" draggable="false" style="width: 37px; height: 37px; user-select: none; border: 0px; padding: 0px; margin: 0px; position: absolute; right: 0px; top: 0px; z-index: 10001; cursor: pointer;">
+       </div>
+       <div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 77px; bottom: 0px; width: 135px;">
+        <div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px;">
+         <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
+          <div style="width: 1px;"></div>
+          <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
+         </div>
+         <div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span>Map data ©2017 Google</span></div>
+        </div>
+       </div>
+       <div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;">
+        <div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2017 Google</div>
+       </div>
+       <div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;">
+        <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
+         <div style="width: 1px;"></div>
+         <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
+        </div>
+        <div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div>
+       </div>
+       <div style="cursor: pointer; margin: 10px 14px; position: absolute; top: 0px; right: 0px;"></div>
+       <div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" controlwidth="28" controlheight="93" style="margin: 10px; user-select: none; position: absolute; bottom: 107px; right: 28px;">
+        <div class="gmnoprint" controlwidth="28" controlheight="55" style="position: absolute; left: 0px; top: 38px;">
+         <div draggable="false" style="user-select: none; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 28px; height: 55px;">
+          <div title="Zoom in" aria-label="Zoom in" tabindex="0" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;">
+           <div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png" draggable="false" style="position: absolute; left: 0px; top: 0px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div>
+          </div>
+          <div style="position: relative; overflow: hidden; width: 67%; height: 1px; left: 16%; background-color: rgb(230, 230, 230); top: 0px;"></div>
+          <div title="Zoom out" aria-label="Zoom out" tabindex="0" style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;">
+           <div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/tmapctrl.png" draggable="false" style="position: absolute; left: 0px; top: -15px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div>
+          </div>
+         </div>
+        </div>
+        <div class="gm-svpc" controlwidth="28" controlheight="28" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; width: 28px; height: 28px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;) 8 8, default; position: absolute; left: 0px; top: 0px;">
+         <div style="position: absolute; left: 1px; top: 1px;"></div>
+         <div style="position: absolute; left: 1px; top: 1px;">
+          <div aria-label="Street View Pegman Control" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png" draggable="false" style="position: absolute; left: -147px; top: -26px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+          <div aria-label="Pegman is on top of the Map" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png" draggable="false" style="position: absolute; left: -147px; top: -52px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+          <div aria-label="Street View Pegman Control" style="width: 26px; height: 26px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/cb_scout5.png" draggable="false" style="position: absolute; left: -147px; top: -78px; width: 215px; height: 835px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+         </div>
+        </div>
+       </div>
+       <div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" controlwidth="0" controlheight="0" style="margin: 10px; user-select: none; position: absolute; display: none; bottom: 26px; left: 0px;">
+        <div class="gmnoprint" controlwidth="28" controlheight="0" style="display: none; position: absolute;">
+         <div title="Rotate map 90 degrees" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; cursor: pointer; background-color: rgb(255, 255, 255); display: none;"><img src="https://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png" draggable="false" style="position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+         <div class="gm-tilt" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; top: 0px; cursor: pointer; background-color: rgb(255, 255, 255);"><img src="https://maps.gstatic.com/mapfiles/api-3/images/tmapctrl4.png" draggable="false" style="position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
 </div>
-
         </div>
 </article>

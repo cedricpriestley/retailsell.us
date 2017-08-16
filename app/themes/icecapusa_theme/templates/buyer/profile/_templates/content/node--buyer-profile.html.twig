@@ -1,93 +1,97 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ * @todo Remove the id attribute (or make it a class), because if that gets
+ *   rendered twice on a page this is invalid CSS for example: two lists
+ *   in different view modes.
+ */
+#}
+<article{{ attributes }}>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ title_prefix }}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
 
-    <title>Tranxit - Profile  - User Dashboard</title>
-    <link rel="shortcut icon" type="image/png" href="http://18.220.43.48/favicon.ico"/>
-
-    <link href="http://18.220.43.48/asset/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://18.220.43.48/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="http://18.220.43.48/asset/css/slick.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://18.220.43.48/asset/css/slick-theme.css"/>
-    <link href="http://18.220.43.48/asset/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <link href="http://18.220.43.48/asset/css/bootstrap-timepicker.css" rel="stylesheet">
-    <link href="http://18.220.43.48/asset/css/dashboard-style.css" rel="stylesheet">
-</head>
-
-<body>
-
-    <header>
-    <nav class="navbar navbar-fixed-top">
-      <div class="container">
-        <div class="col-md-12">
-            <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>             
-
-              <a class="navbar-brand" href="http://18.220.43.48/dashboard"><img src="http://18.220.43.48/logo-black.png"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">            
-                <ul class="nav navbar-nav navbar-right">                  
-                  <li class="menu-drop">
-                      <div class="dropdown">
-                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Appoets Demo
-                          <span class="caret"></span></button>
-                          <ul class="dropdown-menu">
-                            <li><a href="http://18.220.43.48/trips">My Trips</a></li>
-                            <li><a href="http://18.220.43.48/profile">Profile</a></li>
-                            <li><a href="http://18.220.43.48/change/password">Change Password</a></li>
-                            <li><a href="http://18.220.43.48/logout"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">Logout</a></li>
-                                    <form id="logout-form" action="http://18.220.43.48/logout" method="POST" style="display: none;">
-                                        <input type="hidden" name="_token" value="2mYiNTi8Okf76gGRd4HuFmY1hehpCLmh9tNtppPh">
-                                    </form>
-                          </ul>
-                        </div>
-                  </li>
-                </ul>
-            </div>
-        </div>
+  {% if display_submitted %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
       </div>
-    </nav>
-</header>
-    <div class="page-content dashboard-page">    
-        <div class="container">
-            
-            <div class="col-md-3">
-    <div class="dash-left">
-        <div class="user-img">
-                        <div class="pro-img" style="background-image: url(http://18.220.43.48/main/avatar.jpg);"></div>
-            <h4>Appoets Demo</h4>
-        </div>
-        <div class="side-menu">
-             <ul>
-                <li><a href="http://18.220.43.48/dashboard">Dashboard</a></li>
-                <li><a href="http://18.220.43.48/trips">My Trips</a></li>
-                <li><a href="http://18.220.43.48/upcoming/trips">Upcoming trips</a></li>
-                <li><a href="http://18.220.43.48/profile">Profile</a></li>
-                <li><a href="http://18.220.43.48/change/password">Change Password</a></li>
-                <li><a href="http://18.220.43.48/payment">Payment</a></li>
-                <li><a href="http://18.220.43.48/promotion">Promotions</a></li>
-                <li><a href="http://18.220.43.48/wallet">My Wallet <span class="pull-right">$0.00</span></a></li>
-                <li><a href="http://18.220.43.48/logout"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">Logout</a></li>
-                        <form id="logout-form" action="http://18.220.43.48/logout" method="POST" style="display: none;">
-                            <input type="hidden" name="_token" value="2mYiNTi8Okf76gGRd4HuFmY1hehpCLmh9tNtppPh">
-                        </form>
-            </ul>
-        </div>
-    </div>
-</div>            
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes }}>
+    {{ page.content }}           
 <div class="col-md-9">
     <div class="dash-content">
         <div class="row no-margin">
@@ -121,7 +125,7 @@
                 </div>
 
                 <div class="col-md-6 pro-form">
-                    <a class="form-sub-btn" href="http://18.220.43.48/edit/profile">Edit</a>
+                    <a class="form-sub-btn" href="{{ url('<front>') }}edit/profile">Edit</a>
                 </div>
 
             </form>
@@ -129,33 +133,4 @@
 
     </div>
 </div>
-
-
-        </div>
-    </div>
-
-
-    <div class="row footer no-margin">
-        <div class="container">
-            <div class="col-md-6 text-left">
-                <p>&copy; 2017 Appoets</p>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 text-right">
-                <a href="" class="app"><img src="http://18.220.43.48/asset/img/appstore.png"></a>
-                <a href="" class="app"><img src="http://18.220.43.48/asset/img/playstore.png"></a>
-            </div>
-        </div>
-    </div>
-
-    <script src="http://18.220.43.48/asset/js/jquery.min.js"></script>
-    <script src="http://18.220.43.48/asset/js/bootstrap.min.js"></script>       
-    <script type="text/javascript" src="http://18.220.43.48/asset/js/jquery.mousewheel.js"></script>
-    <script type="text/javascript" src="http://18.220.43.48/asset/js/jquery-migrate-1.2.1.min.js"></script> 
-    <script type="text/javascript" src="http://18.220.43.48/asset/js/slick.min.js"></script>
-    <script src="http://18.220.43.48/asset/js/bootstrap-datepicker.min.js"></script>
-    <script src="http://18.220.43.48/asset/js/bootstrap-timepicker.js"></script>
-    <script src="http://18.220.43.48/asset/js/dashboard-scripts.js"></script>
-
-        
-</body>
-</html>
+</article>
