@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="hNgO2Xb3qat9Qd5i6G6EBUaOyn9LJnyzW4dsgq7E">
+
+    <link rel="shortcut icon" href="http://18.220.43.48/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://18.220.43.48/favicon.ico" type="image/x-icon">
+
+    <title>Tranxit</title>
+    <link rel="shortcut icon" type="image/png" href="http://18.220.43.48/favicon.ico"/>
+    
+
+    <!-- Styles -->
+    <link href="http://18.220.43.48/asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://18.220.43.48/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://18.220.43.48/asset/css/slick.css" rel="stylesheet" type="text/css">
+    <link href="http://18.220.43.48/asset/css/slick-theme.css" rel="stylesheet" type="text/css">
+    <link href="http://18.220.43.48/asset/css/rating.css" rel="stylesheet" type="text/css">
+    <link href="http://18.220.43.48/asset/css/dashboard-style.css" rel="stylesheet" type="text/css">
+    
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {"csrfToken":"hNgO2Xb3qat9Qd5i6G6EBUaOyn9LJnyzW4dsgq7E"}    </script>
+</head>
+<body>
+    
+    <div id="wrapper">
+        <div class="overlay" id="overlayer" data-toggle="offcanvas"></div>
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+    <ul class="nav sidebar-nav">
+        <li>
+            <a href="http://18.220.43.48/provider/earnings">Patner Earnings</a>
+        </li>
+        <li>
+            <a href="#">Invite</a>
+        </li>
+        <li>
+            <a href="http://18.220.43.48/provider/profile">Profile</a>
+        </li>
+        <li>
+            <a href="#">Help</a>
+        </li>
+        <li>
+            <a href="http://18.220.43.48/provider/logout"
+                onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+        </li>
+    </ul>
+</nav>        <div id="page-content-wrapper">
+            <header>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                    <span class="hamb-top"></span>
+                    <span class="hamb-middle"></span>
+                    <span class="hamb-bottom"></span>
+                </button>
+                <a class="navbar-brand" href="http://18.220.43.48/provider"><img src="http://18.220.43.48/logo-black.png"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://18.220.43.48/help">Help</a></li>
+                    <li class="dropdown mega-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Appoets Demo
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu mega-dropdown-menu">
+                            <li class="row no-margin">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                                    <a href="#" class="new-pro-img bg-img" style="background-image: url(http://18.220.43.48/asset/img/provider.jpg);">
+                                    </a>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                    <h6 class="new-pro-name">
+                                        Appoets Demo
+                                    </h6>
+                                    <div class="rating-outer new-pro-rating">
+                                        <input type="hidden" class="rating"/ value="5.00" readonly>
+                                    </div>
+
+                                    <a href="http://18.220.43.48/provider/profile" class="new-pro-link">My Profile</a>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="http://18.220.43.48/provider/profile/password">Change Password</a></li>
+                            <li>
+                                <a href="http://18.220.43.48/provider/logout"
+                                    onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="http://18.220.43.48/provider/logout" method="POST" style="display: none;">
+                                    <input type="hidden" name="_token" value="hNgO2Xb3qat9Qd5i6G6EBUaOyn9LJnyzW4dsgq7E">
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>            <div class="page-content">
+                <div class="pro-dashboard">
+                    <div class="pro-dashboard-head">
+    <div class="container">
+        <a href="#" class="pro-head-link active">Drive Now</a>
+    </div>
+</div>
+<div class="pro-dashboard-content">
+    <div class="container">
+        <div class="dash-content" id="trip-container">
+            <div class="row no-margin" >
+
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+                <div class="footer row no-margin">
+    <div class="container">
+        <div class="row no-margin">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <ul>
+                    <li><a href="#">Ride</a></li>
+                    <li><a href="#">Drive</a></li>
+                    <li><a href="#">Cities</a></li>
+                    <li><a href="#">Fare Estimate</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <ul>
+                    <li><a href="#">Signup to Ride</a></li>
+                    <li><a href="#">Become a Driver</a></li>
+                    <li><a href="#">Ride Now</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <h5>Get App on</h5>
+                <ul class="app">
+                    <li><a href=""><img src="http://18.220.43.48/asset/img/appstore.png"></a></li>
+                    <li><a href=""><img src="http://18.220.43.48/asset/img/playstore.png"></a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <h5>Connect us</h5>
+                <ul class="social">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row no-margin">
+            <div class="col-md-12 copy">
+                <p>&copy; 2017 Appoets</p>
+            </div>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+    </div>
+
+    <div id="modal-incoming"></div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/slick.min.js"></script>
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/rating.js"></script>
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/dashboard-scripts.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script type="text/babel" src="http://18.220.43.48/asset/js/incoming.js"></script>
+    <script type="text/javascript">
+        // $.incoming({
+        //     'url': 'http://18.220.43.48/provider/incoming',
+        //     'modal': '#modal-incoming'
+        // });
+    </script>
+
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/rating.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJUPrYJXDZNgb9KATSHAQYP-7lcchUts&libraries=places" defer></script>
+<script type="text/javascript">
+    var map;
+    var routeMarkers = {
+                source: {
+                    lat: 0,
+                    lng: 0,
+                },
+                destination: {
+                    lat: 0,
+                    lng: 0,
+                }
+            };
+    var zoomLevel = 13;
+    var directionsService;
+    var directionsDisplay;
+
+    function initMap() {
+        // Basic options for a simple Google Map
+        var center = new google.maps.LatLng('13', '80');
+        
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+        // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+
+        var mapOptions = {
+            // How zoomed in you want the map to start at (always required)
+            zoom: zoomLevel,
+            disableDefaultUI: true,
+            // The latitude and longitude to center the map (always required)
+            center: center,
+
+            // Map styling
+            styles: [
+                {
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#f5f5f5"
+                        }
+                    ]
+                },
+                {
+                    elementType:"labels.icon",
+                    stylers:[
+                        {
+                            visibility:"off"
+                        }
+                    ]
+                },
+                {
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#616161"
+                        }
+                    ]
+                },
+                {
+                    elementType:"labels.text.stroke",
+                    stylers:[
+                        {
+                            color:"#f5f5f5"
+                        }
+                    ]
+                },
+                {
+                    featureType:"administrative.land_parcel",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#bdbdbd"
+                        }
+                    ]
+                },
+                {
+                    featureType:"poi",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#eeeeee"
+                        }
+                    ]
+                },
+                {
+                    featureType:"poi",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#757575"
+                        }
+                    ]
+                },
+                {
+                    featureType:"poi.park",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#e5e5e5"
+                        }
+                    ]
+                },
+                {
+                    featureType:"poi.park",
+                    elementType:"geometry.fill",
+                    stylers:[
+                        {
+                            color:"#7de843"
+                        }
+                    ]
+                },
+                {
+                    featureType:"poi.park",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    featureType:"road",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#ffffff"
+                        }
+                    ]
+                },
+                {
+                    featureType:"road.arterial",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#757575"
+                        }
+                    ]
+                },
+                {
+                    featureType:"road.highway",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#dadada"
+                        }
+                    ]
+                },
+                {
+                    featureType:"road.highway",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#616161"
+                        }
+                    ]
+                },
+                {
+                    featureType:"road.local",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#9e9e9e"
+                        }
+                    ]
+                },
+                {
+                    featureType:"transit.line",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#e5e5e5"
+                        }
+                    ]
+                },
+                {
+                    featureType:"transit.station",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#eeeeee"
+                        }
+                    ]
+                },
+                {
+                    featureType:"water",
+                    elementType:"geometry",
+                    stylers:[
+                        {
+                            color:"#c9c9c9"
+                        }
+                    ]
+                },
+                {
+                    featureType:"water",
+                    elementType:"geometry.fill",
+                    stylers:[
+                        {
+                            color:"#9bd0e8"
+                        }
+                    ]
+                },
+                {
+                    featureType:"water",
+                    elementType:"labels.text.fill",
+                    stylers:[
+                        {
+                            color:"#9e9e9e"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Get the HTML DOM element that will contain your map 
+        // We are using a div with id="map" seen below in the <body>
+        var mapElement = document.getElementById('map');
+
+        // Create the Google Map using out element and options defined above
+        map = new google.maps.Map(mapElement, mapOptions);
+
+        navigator.geolocation.getCurrentPosition(function (position) { 
+            center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(center);
+
+            var marker = new google.maps.Marker({
+                map: map,
+                anchorPoint: new google.maps.Point(0, -29),
+            });
+
+            marker.setPosition(center);
+            marker.setVisible(true);
+        });
+
+    }
+
+    function updateMap(route) {
+
+        console.log('updateMap', route, routeMarkers);
+        // var markerSecond = new google.maps.Marker({
+        //     map: map,
+        //     anchorPoint: new google.maps.Point(0, -29)
+        // });
+
+        // source = new google.maps.LatLng('13', '80');
+        // destination = new google.maps.LatLng('13', '80');
+
+        // marker.setVisible(false);
+        // marker.setPosition(source);
+
+        // markerSecond.setVisible(false);
+        // markerSecond.setPosition(destination);
+
+        // var bounds = new google.maps.LatLngBounds();
+        // bounds.extend(marker.getPosition());
+        // bounds.extend(markerSecond.getPosition());
+        // map.fitBounds(bounds);
+
+        if(routeMarkers.source.lat == route.source.lat &&
+            routeMarkers.source.lng == route.source.lng &&
+            routeMarkers.destination.lat == route.destination.lat &&
+            routeMarkers.destination.lng == route.destination.lng) {
+
+        } else {
+
+            routeMarkers = route;
+            
+            directionsDisplay.set('directions', null);
+            directionsDisplay.setMap(map);
+
+            directionsService.route({
+                origin: route.source,
+                destination: route.destination,
+                travelMode: google.maps.TravelMode.DRIVING
+            }, function(result, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(result);
+                }
+            });
+        }
+
+    }
+</script>
+
+</body>
+</html>
