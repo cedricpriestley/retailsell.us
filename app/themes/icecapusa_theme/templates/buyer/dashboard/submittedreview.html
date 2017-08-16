@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tranxit - Dashboard  - User Dashboard</title>
+    <link rel="shortcut icon" type="image/png" href="http://18.220.43.48/favicon.ico"/>
+
+    <link href="http://18.220.43.48/asset/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://18.220.43.48/asset/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://18.220.43.48/asset/css/slick.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://18.220.43.48/asset/css/slick-theme.css"/>
+    <link href="http://18.220.43.48/asset/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="http://18.220.43.48/asset/css/bootstrap-timepicker.css" rel="stylesheet">
+    <link href="http://18.220.43.48/asset/css/dashboard-style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+    <nav class="navbar navbar-fixed-top">
+      <div class="container">
+        <div class="col-md-12">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>             
+
+              <a class="navbar-brand" href="http://18.220.43.48/dashboard"><img src="http://18.220.43.48/logo-black.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">            
+                <ul class="nav navbar-nav navbar-right">                  
+                  <li class="menu-drop">
+                      <div class="dropdown">
+                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Appoets Demo
+                          <span class="caret"></span></button>
+                          <ul class="dropdown-menu">
+                            <li><a href="http://18.220.43.48/trips">My Trips</a></li>
+                            <li><a href="http://18.220.43.48/profile">Profile</a></li>
+                            <li><a href="http://18.220.43.48/change/password">Change Password</a></li>
+                            <li><a href="http://18.220.43.48/logout"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Logout</a></li>
+                                    <form id="logout-form" action="http://18.220.43.48/logout" method="POST" style="display: none;">
+                                        <input type="hidden" name="_token" value="hNgO2Xb3qat9Qd5i6G6EBUaOyn9LJnyzW4dsgq7E">
+                                    </form>
+                          </ul>
+                        </div>
+                  </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </nav>
+</header>
+    <div class="page-content dashboard-page">    
+        <div class="container">
+            
+            <div class="col-md-3">
+    <div class="dash-left">
+        <div class="user-img">
+                        <div class="pro-img" style="background-image: url(http://18.220.43.48/main/avatar.jpg);"></div>
+            <h4>Appoets Demo</h4>
+        </div>
+        <div class="side-menu">
+             <ul>
+                <li><a href="http://18.220.43.48/dashboard">Dashboard</a></li>
+                <li><a href="http://18.220.43.48/trips">My Trips</a></li>
+                <li><a href="http://18.220.43.48/upcoming/trips">Upcoming trips</a></li>
+                <li><a href="http://18.220.43.48/profile">Profile</a></li>
+                <li><a href="http://18.220.43.48/change/password">Change Password</a></li>
+                <li><a href="http://18.220.43.48/payment">Payment</a></li>
+                <li><a href="http://18.220.43.48/promotion">Promotions</a></li>
+                <li><a href="http://18.220.43.48/wallet">My Wallet <span class="pull-right">$100</span></a></li>
+                <li><a href="http://18.220.43.48/logout"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">Logout</a></li>
+                        <form id="logout-form" action="http://18.220.43.48/logout" method="POST" style="display: none;">
+                            <input type="hidden" name="_token" value="hNgO2Xb3qat9Qd5i6G6EBUaOyn9LJnyzW4dsgq7E">
+                        </form>
+            </ul>
+        </div>
+    </div>
+</div>            
+<div class="col-md-9">
+    <div class="dash-content">
+        <div class="row no-margin">
+            <div class="col-md-12">
+                <h4 class="page-title">Ride Now</h4>
+            </div>
+        </div>
+        <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        Driver Rated Successfully!
+    </div>
+        <div class="row no-margin">
+            <div class="col-md-6">
+                <form action="http://18.220.43.48/confirm/ride" method="GET" onkeypress="return disableEnterKey(event);">
+                    <div class="input-group dash-form">
+                        <input type="text" class="form-control" id="origin-input" name="s_address"  placeholder="Enter pickup location">
+                    </div>
+
+                    <div class="input-group dash-form">
+                        <input type="text" class="form-control" id="destination-input" name="d_address"  placeholder="Enter drop location" >
+                    </div>
+
+                    <input type="hidden" name="s_latitude" id="origin_latitude">
+                    <input type="hidden" name="s_longitude" id="origin_longitude">
+                    <input type="hidden" name="d_latitude" id="destination_latitude">
+                    <input type="hidden" name="d_longitude" id="destination_longitude">
+                    <input type="hidden" name="current_longitude" id="long">
+                    <input type="hidden" name="current_latitude" id="lat">
+
+                    <div class="car-detail">
+
+                                                <div class="car-radio">
+                            <input type="radio" 
+                                name="service_type"
+                                value="1"
+                                id="service_1"
+                                 checked="checked" >
+                            <label for="service_1">
+                                <div class="car-radio-inner">
+                                    <div class="img"><img src="http://localhost/asset/img/cars/sedan.png"></div>
+                                    <div class="name"><span>Sedan</span></div>
+                                </div>
+                            </label>
+                        </div>
+                                                <div class="car-radio">
+                            <input type="radio" 
+                                name="service_type"
+                                value="2"
+                                id="service_2"
+                                >
+                            <label for="service_2">
+                                <div class="car-radio-inner">
+                                    <div class="img"><img src="http://localhost/asset/img/cars/hatchback.png"></div>
+                                    <div class="name"><span>Hatchback</span></div>
+                                </div>
+                            </label>
+                        </div>
+                                                <div class="car-radio">
+                            <input type="radio" 
+                                name="service_type"
+                                value="3"
+                                id="service_3"
+                                >
+                            <label for="service_3">
+                                <div class="car-radio-inner">
+                                    <div class="img"><img src="http://localhost/asset/img/cars/suv.png"></div>
+                                    <div class="name"><span>SUV</span></div>
+                                </div>
+                            </label>
+                        </div>
+                                                <div class="car-radio">
+                            <input type="radio" 
+                                name="service_type"
+                                value="4"
+                                id="service_4"
+                                >
+                            <label for="service_4">
+                                <div class="car-radio-inner">
+                                    <div class="img"><img src="http://localhost/asset/img/cars/limo.png"></div>
+                                    <div class="name"><span>Limousine</span></div>
+                                </div>
+                            </label>
+                        </div>
+                        
+
+                    </div>
+
+                    <button type="submit"  class="full-primary-btn fare-btn">Ride Now</button>
+
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <div class="map-responsive">
+                    <div id="map" style="width: 100%; height: 450px;"></div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+    </div>
+
+
+    <div class="row footer no-margin">
+        <div class="container">
+            <div class="col-md-6 text-left">
+                <p>&copy; 2017 Appoets</p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 text-right">
+                <a href="" class="app"><img src="http://18.220.43.48/asset/img/appstore.png"></a>
+                <a href="" class="app"><img src="http://18.220.43.48/asset/img/playstore.png"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://18.220.43.48/asset/js/jquery.min.js"></script>
+    <script src="http://18.220.43.48/asset/js/bootstrap.min.js"></script>       
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/jquery-migrate-1.2.1.min.js"></script> 
+    <script type="text/javascript" src="http://18.220.43.48/asset/js/slick.min.js"></script>
+    <script src="http://18.220.43.48/asset/js/bootstrap-datepicker.min.js"></script>
+    <script src="http://18.220.43.48/asset/js/bootstrap-timepicker.js"></script>
+    <script src="http://18.220.43.48/asset/js/dashboard-scripts.js"></script>
+
+        
+<script type="text/javascript">
+    var current_latitude = 13.0574400;
+    var current_longitude = 80.2482605;
+</script>
+
+<script type="text/javascript">
+    if( navigator.geolocation ) {
+       navigator.geolocation.getCurrentPosition( success, fail );
+    } else {
+        console.log('Sorry, your browser does not support geolocation services');
+        initMap();
+    }
+
+    function success(position)
+    {
+        document.getElementById('long').value = position.coords.longitude;
+        document.getElementById('lat').value = position.coords.latitude
+
+        if(position.coords.longitude != "" && position.coords.latitude != ""){
+            current_longitude = position.coords.longitude;
+            current_latitude = position.coords.latitude;
+        }
+        initMap();
+    }
+
+    function fail()
+    {
+        // Could not obtain location
+        console.log('unable to get your location');
+        initMap();
+    }
+</script> 
+
+<script type="text/javascript" src="http://18.220.43.48/asset/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEJUPrYJXDZNgb9KATSHAQYP-7lcchUts&libraries=places&callback=initMap" async defer></script>
+
+<script type="text/javascript">
+    function disableEnterKey(e)
+    {
+        var key;
+        if(window.e)
+            key = window.e.keyCode; // IE
+        else
+            key = e.which; // Firefox
+
+        if(key == 13)
+            return e.preventDefault();
+    }
+</script>
+
+    
+</body>
+</html>
